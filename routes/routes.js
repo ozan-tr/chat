@@ -1,6 +1,7 @@
 
 const userRoutes = require('./Users');
 const channelRoutes = require('./Channels');
+const messageRoutes = require('./Messages');
 
 const appRouter = (app, fs,mongoose,User,Message,Channel) => {
 console.log(User)
@@ -10,7 +11,8 @@ console.log(User)
 
   
   userRoutes(app, fs,mongoose,User);
-  channelRoutes(app,mongoose,User,Message,Channel)
+  channelRoutes(app,mongoose,User,Channel)
+  messageRoutes(app,mongoose,User,Message,Channel)
 
 };
 

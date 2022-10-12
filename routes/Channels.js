@@ -1,4 +1,4 @@
-const channelRoutes = (app,mongoose,User,Message,Channel) => {
+const channelRoutes = (app,mongoose,User,Channel) => {
 
     //enter channel
     app.get('/chat/:sender/:reciever', (req,res,next) => {
