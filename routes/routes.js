@@ -12,7 +12,7 @@ console.log(User)
   
   userRoutes(app, fs,mongoose,User);
   channelRoutes(app,mongoose,User,Channel)
-  messageRoutes(app,mongoose,User,Message,Channel)
+  messageRoutes(app,mongoose,User,Channel,Message)
 
 };
 

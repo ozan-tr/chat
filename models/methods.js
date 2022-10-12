@@ -14,6 +14,7 @@ const messageSchema = mongoose.Schema({
     channelId:String,
     content:String,
     date:Date,
+    sender:String
 })
 
 const channelSchema = mongoose.Schema({
