@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "nodemon .",
-    "start":"node ."
+    "start": "node ."
   },
   "author": "ozan-tr",
   "license": "ISC",
@@ -18,7 +18,13 @@
   "homepage": "https://github.com/ozan-tr/chat#readme",
   "description": "",
   "dependencies": {
-    "express": "^4.18.2"
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "helmet": "^6.0.0",
+    "mongodb": "4.10",
+    "mongoose": "^6.6.5",
+    "morgan": "^1.10.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.20"
