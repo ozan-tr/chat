@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "nodemon .",
-    "start": "node ."
+    "start": "node . --ignore './CLIENT'"
   },
   "author": "ozan-tr",
   "license": "ISC",

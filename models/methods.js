@@ -5,26 +5,37 @@ const userSchema = mongoose.Schema({
     username: String,
     password: String,
     role: String,
-    mail: String
+    mail: String,
+    currentChannel:String
 })
+
 const messageSchema = mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
-    senderId: String,
-    recieverId:String,
-    mail:String
+    channelId:String,
+    content:String,
+    date:Date,
+})
+
+const channelSchema = mongoose.Schema({
+    _id: mongoose.Schema.Types.ObjectId,
+    User1Id: String,
+    User2Id:String,
+    history: Array
 })
 
 const user =mongoose.model('User', userSchema)
 const message=mongoose.model("Message",messageSchema)
-
+const channel=mongoose.model("Channel",channelSchema)
 
 
 exports.User=user
 exports.Message=message
+exports.Channel=channel
 
 
 module.exports = {   
     User:user,
-    Message:message
+    Message:message,
+    Channel:channel
 
 }

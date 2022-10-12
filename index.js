@@ -6,7 +6,7 @@ const helmet = require("helmet");
 const cors = require("cors");
 const morgan = require("morgan");
 const fs = require("fs");
-const {User} = require('./models/methods.js');
+const {User,Message,Channel} = require('./models/methods.js');
 
 async function Connect() {
   await mongoose.connect(process.env.DB_TOKEN);
@@ -30,7 +30,7 @@ Connect()
       })
     );
 
-    const routes = require("./routes/routes.js")(app, fs, mongoose,User);
+    const routes = require("./routes/routes.js")(app, fs, mongoose,User,Message,Channel);
 
     let port = process.env.PORT;
     if (port == null || port == "") {

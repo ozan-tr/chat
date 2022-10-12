@@ -34,7 +34,8 @@ const userRoutes = (app, fs,mongoose,User) => {
                     username: username,
                     password: password,
                     role: "user",
-                    mail: mail
+                    mail: mail,
+                    currentChannel:null
                 })
                 user.save()
                 .then(result =>{
@@ -50,7 +51,7 @@ const userRoutes = (app, fs,mongoose,User) => {
         }).catch(err => console.log(err))
     })
 
-    router.get('/login/:mail/:password', (req,res,next) => {
+    app.get('/login/:mail/:password', (req,res,next) => {
         const mail = req.params.mail
         const password = req.params.password
     
