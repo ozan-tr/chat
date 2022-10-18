@@ -2,8 +2,7 @@ let login = document.getElementById("login");
 let signup = document.getElementById("signup");
 let main = document.getElementById("main");
 
-let auth = document.getElementById("authMenu");
-let messanger = document.getElementById("messanger");
+
 
 login.style.display = "none";
 signup.style.display = "none";
@@ -40,7 +39,7 @@ function back() {
   main.style.display = "flex";
 }
 
-function enterMessages() {
-  auth.style.display = "none";
-  messanger.style.display = "flex";
-}
+
+
+
+

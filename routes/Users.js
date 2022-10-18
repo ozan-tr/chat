@@ -12,6 +12,40 @@ const userRoutes = (app, fs, mongoose, User) => {
       });
   });
 
+  app.get("/getData/:user", (req, res, next) => {
+    User.findOne({_id:req.params.user})
+      .exec()
+      .then((userData) => {
+        if (userData) {
+
+          let fList=[]
+
+          userData.friends.forEach(fmail => {
+            console.log(fmail);
+            User.findOne({mail:fmail}).then(friend=>{
+              fList.push({mail:friend.mail,username:friend.username})
+            })
+          })
+
+          setTimeout(()=>{
+            res.status(200).json(
+              {
+                username: userData.username,
+                friends: fList,
+                currentChannel: userData.currentChannel
+              }
+            );
+          },1000)
+
+
+        } else {
+          res.status(404).send();
+        }
+      });
+  });
+
+
+
   app.get("/signup/:username/:password/:mail", (req, res, next) => {
     const username = req.params.username;
     const password = req.params.password;

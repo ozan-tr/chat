@@ -1,5 +1,47 @@
 const channelRoutes = (app, mongoose, User, Channel) => {
+
+  app.get("/addfriend/:id/:mail", (req, res) => {
+    const id = req.params.id;
+    const other = req.params.mail
+
+  
+    User.findOne({ mail: other })
+    .exec()
+    .then((user) => {
+if(user) {
+  User.findOne({ _id: id }).exec().then(you => {
+    if (you.friends.find(e => e == other)) {
+      res.status(400).send("Already friends")
+    } else {
+      you.friends.push(other)
+      you.save()
+      user.friends.push(you.mail)
+      user.save()
+       
+
+      res.status(200).send("friend added")
+    }
+  })
+}else{
+  res.status(404).send("invalid user")
+}
+
+  })
+
+
+
+  })
+
+
+
+
   //enter channel
+
+
+
+
+
+
   app.get("/chat/:sender/:reciever", (req, res, next) => {
     User.findOne({ mail: req.params.reciever })
       .exec()
