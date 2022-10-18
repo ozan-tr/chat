@@ -1,0 +1,40 @@
+.container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: gray;
+    border-radius: 25px 25px;
+    width: 300px;
+    height: 400px;
+    display: flex;
+    vertical-align: middle;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    row-gap: 20px;
+    
+
+}
+.container button{
+    font-size: 30px;
+    width: 80%;
+    height: 20%;
+    background-color: darkgray;
+    border-radius: 25px 25px;
+}
+.container input{
+    font-size: 30px;
+    width: 80%;
+    height: 10%;
+    background-color: darkgray;
+    border-radius: 25px 25px;
+}
+.spacer{
+    text-align: center;
+    vertical-align: middle;
+    color: red;
+    font-size: 30px;
+    width: 80%;
+    height: 5%;
+}

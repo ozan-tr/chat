@@ -2,10 +2,11 @@ require("dotenv").config();
 const mongoose = require("mongoose");
 const express = require("express");
 const bodyParser = require("body-parser");
-const helmet = require("helmet");
+
 const cors = require("cors");
 const morgan = require("morgan");
 const fs = require("fs");
+var path = require('path');
 const {User,Message,Channel} = require('./models/methods.js');
 
 async function Connect() {
@@ -21,7 +22,6 @@ Connect()
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({ extended: true }));
 
-    app.use(helmet());
     app.use(morgan("combined"));
 
     app.use(
@@ -29,6 +29,10 @@ Connect()
         origin: "*",
       })
     );
+
+    var htmlPath = path.join(__dirname, 'CLIENT');
+
+    app.use(express.static(htmlPath));
 
     const routes = require("./routes/routes.js")(app, fs, mongoose,User,Message,Channel);
 

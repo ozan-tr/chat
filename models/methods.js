@@ -6,6 +6,7 @@ const userSchema = mongoose.Schema({
     password: String,
     role: String,
     mail: String,
+    friends:Array,
     currentChannel:String
 })
 

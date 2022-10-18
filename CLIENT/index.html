@@ -2,11 +2,45 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-hashes' ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./assets/style.css">
+
 </head>
-<body>
+<body onload="isSignedIn()">
+    <div id="authMenu">
+        <div class="container" id="main">
+            <button onclick="signupMenu()">Sign Up</button>
+            <button onclick="loginMenu()">Log In</button>
+        </div>
+        <div class="container" id="login">
+            <input type="text" placeholder="Mail" class="m">
+            <input type="text" placeholder="Password" class="p">
+            <div class="spacer"></div>
+            <button onclick="handleLogin()">Log In</button>
+            <button onclick="back()">Go Back</button>
+        </div>
+        <div class="container" id="signup">
+            <input type="text" placeholder="Mail" class="m">
+            <input type="text" placeholder="Username" class="u">
+            <input type="text" placeholder="Password" class="p">
+            <div class="spacer"></div>
+            <button onclick="handleSignup()">Sign Up</button>
+            <button onclick="back()">Go Back</button>
+        </div>
+    </div>
+    <div id="messanger">
+
+    </div>
     
+
 </body>
+
+<script src="assets/js/globalVars.js"></script>
+<script src="assets/js/clientApi.js"></script>
+<script src="assets/js/userApi.js"></script>
+<script src="assets/js/menuStuff.js"></script>
+
 </html>
