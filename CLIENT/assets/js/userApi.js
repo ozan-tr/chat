@@ -81,11 +81,12 @@ function handleLogin(){
                     errBox.style.color="red"
                     
                     SIGNED_IN=true
-                    let token=await res.json().userId
 
-                    localStorage.setItem("TOKEN", token)
+                    let token= await res.json()
 
-                    console.log("user token: "+token)
+                    localStorage.setItem("TOKEN", token.userId)
+
+                    console.log("user token: "+token.userId)
 
                     //TODO: proceed to allah
 
@@ -104,6 +105,7 @@ function handleLogin(){
                 setTimeout(()=>{errBox.innerText=""},1000)
                 break;
         }
-    })
+    }).catch(err => {console.log("error: " + err)})
 }
+
 

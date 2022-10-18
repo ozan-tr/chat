@@ -1,7 +1,6 @@
 const userRoutes = (app, fs, mongoose, User) => {
-  app.get("/check/:userId", (req, res, next) => {
-    const userId = req.params.userId;
-    User.findOne({ _id: userId })
+  app.get("/check/:user", (req, res, next) => {
+    User.findOne({_id:req.params.user})
       .exec()
       .then((userData) => {
         console.log(userData);

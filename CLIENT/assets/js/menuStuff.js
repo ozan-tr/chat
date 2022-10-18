@@ -9,15 +9,18 @@ login.style.display = "none";
 signup.style.display = "none";
 messanger.style.display = "none";
 
-if (localStorage.getItem("TOKEN") !== null) {
-  fetch(dbUrl + "check/" + localStorage.getItem("token"), (res) => {
+if (localStorage.getItem("TOKEN")) {
+  console.log(dbUrl + "check/" + localStorage.getItem("TOKEN"))
+  fetch(dbUrl + "check/" + localStorage.getItem("TOKEN")).then(res=>{
     if (res.status == 200) {
-      SIGNED_IN = true;
       enterMessages();
+      console.log("signed in");
     } else {
+      console.log("wrong id")
       signOut();
     }
-  });
+  })
+
 }
 
 function loginMenu() {
